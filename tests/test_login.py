@@ -4,6 +4,7 @@ def test_token_sucessful():
     loginAPI = LoginAPI()
     response = loginAPI.get_token("admin", "admin")
     data = response.json()
+    token = data.get("data", {}).get("token")
     
-    assert not data['data'] is None, "O token retornou vazio"
-    assert data["message"] == "Sucesso ao realizar o login"
+    assert token, "O token retornou vazio ou não existe"
+    assert data["message"] == "Sucesso ao realizar o login" 

@@ -17,7 +17,7 @@ class BaseAPI:
     
     def post(self, endpoint, json, headers=None):
         try:
-            response = requests.post(f"http://165.227.93.41/lojinha/v2/login", 
+            response = requests.post(f"{self.base_url}{endpoint}", 
              json=json, headers=headers or config.DEFAULT_HEADERS,timeout=10)
             response.raise_for_status()
             return response

@@ -3,8 +3,8 @@ from utils import config
 import logging
 
 class BaseAPI:
-    def __init__(self, base_url=None):
-        self.base_url = base_url or config.BASE_URL
+    def __init__(self):
+        self.base_url = config.BASE_URL
     
     def get(self, endpoint, headers=None, params=None):
         try:
